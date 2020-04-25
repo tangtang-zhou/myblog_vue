@@ -44,7 +44,8 @@
                     password: [
                         {
                             required: true, message: '请输入登录密码', trigger: 'blur'
-                        },{
+                        },
+                        {
                             min: 6, max: 15, message: '长度在 3 到 10 个字符', trigger: 'blur'
                         }
                     ]
@@ -54,17 +55,17 @@
         methods: {
             // 重置表单
             resetLoginForm () {
-                this.$refs.loginFormRef.resetFields();
+                this.$refs.loginFormRef.resetFields()
             },
             login () {
-                this.$refs.loginFormRef.validate(async validate =>{
-                    if (!validate) return;
-                    const {data: res} = await this.$http.post("/api/login",this.loginForm);
-                    console.log(res);
-                    this.$message.success("登录成功")
-                    window.sessionStorage.setItem("token", res.data.token) // 保存token
-                    this.$router.push("")// 编程式导航
-                });
+                this.$refs.loginFormRef.validate(async validate => {
+                    if (!validate) return
+                    const { data: res } = await this.$http.post('/api/login', this.loginForm)
+                    console.log(res)
+                    this.$message.success('登录成功')
+                    window.sessionStorage.setItem('token', res.data.token) // 保存token
+                    this.$router.push('')// 编程式导航
+                })
             }
         }
     }

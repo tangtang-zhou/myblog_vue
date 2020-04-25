@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import Login from '../components/login'
 import Home from '../components/home'
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
 const routes = [
   {
@@ -22,6 +22,6 @@ const routes = [
 
 const router = new VueRouter({
   routes
-});
+})
 
-export default router;
+export default router
