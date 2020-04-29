@@ -28,6 +28,7 @@
         data () {
             return {
                 loginForm: {
+                    id: 1,
                     username: '',
                     password: ''
                 },
@@ -46,7 +47,7 @@
                             required: true, message: '请输入登录密码', trigger: 'blur'
                         },
                         {
-                            min: 6, max: 15, message: '长度在 3 到 10 个字符', trigger: 'blur'
+                            min: 5, max: 15, message: '长度在 5 到 15 个字符', trigger: 'blur'
                         }
                     ]
                 }
@@ -63,8 +64,9 @@
                     const { data: res } = await this.$http.post('/api/login', this.loginForm)
                     console.log(res)
                     this.$message.success('登录成功')
-                    window.sessionStorage.setItem('token', res.data.token) // 保存token
-                    this.$router.push('')// 编程式导航
+                    window.sessionStorage.setItem('user', res)
+                    window.sessionStorage.setItem('token', res.token) // 保存token
+                    this.$router.push('/home')// 编程式导航
                 })
             }
         }
